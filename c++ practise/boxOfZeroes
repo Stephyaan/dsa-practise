@@ -1,0 +1,23 @@
+Write a simplecpp program that reads two positive integers L and W and makes a rectangle of 0s with 1s on the perimeter. 
+The length of the complete rectangle is L and width is W.Input:
+Two space separated integers L and W where 3 <= L <= 20 and 3 <= W <= 20.
+solution:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int L, W;
+    cin >> L >> W;
+
+    for (int i = 1; i <= W; i++) {
+        for (int j = 1; j <= L; j++) {
+            if (i == 1 || i == W || j == 1 || j == L)
+                cout << 1;
+            else
+                cout << 0;
+        }
+        cout << endl;
+    }
+    return 0;
+}
