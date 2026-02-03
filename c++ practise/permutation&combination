@@ -1,0 +1,26 @@
+Given two integers n and r you are required to write a simplecpp program to compute the number of ways to arrange r of n distinct objects in a row (permutations), 
+and number of ways to choose r distinct objects from n distinct objects (combinations).
+
+
+#include <iostream>
+using namespace std;
+
+long long factorial(int x) {
+    long long fact = 1;
+    for (int i = 1; i <= x; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int n, r;
+    cin >> n >> r;
+
+    long long p = factorial(n) / factorial(n - r);
+    long long c = factorial(n) / (factorial(r) * factorial(n - r));
+
+    cout << p << " " << c;
+
+    return 0;
+}
