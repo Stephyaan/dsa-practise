@@ -1,0 +1,48 @@
+Problem Statement
+You are a traveler on a 2D grid of size m × n.
+You start at the top-left corner (m, n) and your goal is to reach the bottom-right corner (1, 1).
+
+Movement Rules
+You may move Down, which decreases m by 1
+
+You may move Left, which decreases n by 1
+
+No other moves are allowed
+
+Restrictions
+You must use recursion only
+
+You are not allowed to use any external data structures such as arrays, lists, or dictionaries
+
+Task
+Write a recursive function that returns the total number of unique paths from (m, n) to (1, 1) following the allowed movements.
+
+Edge Case Considerations
+If m = 1 and n = 1, the starting cell is the destination, so there is exactly one valid path. 
+If m = 1 and n > 1, only left moves are possible, so there is exactly one unique path. 
+If m > 1 and n = 1, only downward moves are possible, so there is exactly one unique path. 
+If m ≤ 0 or n ≤ 0, the grid is invalid and the number of paths is 0.
+
+  solution: 
+#include <iostream>
+using namespace std;
+
+int uniquePaths(int m, int n) {
+    // Invalid grid
+    if (m <= 0 || n <= 0)
+        return 0;
+
+    // Destination reached
+    if (m == 1 && n == 1)
+        return 1;
+
+    // Recursive case
+    return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+}
+
+int main() {
+    int m, n;
+    cin >> m >> n;
+    cout << uniquePaths(m, n);
+    return 0;
+}
