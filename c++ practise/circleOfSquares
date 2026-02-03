@@ -1,0 +1,33 @@
+Write a program using simplecpp to draw the patterns (examples given below) with each side of length 100 units. 
+Nested repeat may be required. As input, you will be given an integer n which denotes the number of squares expected. 
+The pattern should be n way symmetric. In other words, the angles between a particular side of the square to its neighbor must be equal for all the squares.
+
+#include <simplecpp>
+void drawSquare(double side) {
+    for (int i = 0; i < 4; i++) {
+        forward(side);
+        left(90);
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    initCanvas("Symmetric Squares", 800, 800);
+
+    double angle = 360.0 / n;
+
+    // Position turtle at center
+    penUp();
+    moveTo(400, 400);
+    penDown();
+
+    for (int i = 0; i < n; i++) {
+        drawSquare(100);
+        left(angle);
+    }
+
+    wait(5);
+    return 0;
+}
