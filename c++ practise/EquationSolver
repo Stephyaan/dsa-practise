@@ -1,0 +1,25 @@
+You are given two equations with two variables:
+a1x+b1y+c=0 ; a2x+b2y+c2=0
+equations are consistent (they are guaranteed to have a unique solution). 
+Write a program in simplecpp so you read the values of a1, b1 and c1 from line 1 and a2, b2 and c2 from line 2. 
+Output two space separated floats x and y as the solution.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a1, b1, c1;
+    float a2, b2, c2;
+
+    cin >> a1 >> b1 >> c1;
+    cin >> a2 >> b2 >> c2;
+
+    float D = a1 * b2 - a2 * b1;
+
+    float x = ((-c1) * b2 - (-c2) * b1) / D;
+    float y = (a1 * (-c2) - a2 * (-c1)) / D;
+
+    cout << x << " " << y;
+
+    return 0;
+}
