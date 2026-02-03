@@ -1,0 +1,24 @@
+Write a program using simplecpp to draw a grid as shown below with every full line length being 150 and the resulting square boxes being 50x50.
+
+#include <simplecpp>
+int main() {
+    initCanvas("Simple Grid", 400, 400);
+
+    int centerX = 200;
+    int centerY = 200;
+
+    // Vertical lines
+    for (int i = -50; i <= 50; i += 50) {
+        Line v(centerX + i, centerY - 75,
+               centerX + i, centerY + 75);
+    }
+
+    // Horizontal lines
+    for (int i = -50; i <= 50; i += 50) {
+        Line h(centerX - 75, centerY + i,
+               centerX + 75, centerY + i);
+    }
+
+    wait(5);
+    return 0;
+}
