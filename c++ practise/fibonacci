@@ -1,0 +1,20 @@
+ Fibonacci sequence, form a sequence where each number is the sum of the two preceding numbers.
+solution:
+#include <iostream>
+using namespace std;
+
+// Recursive function to compute Virahanka number
+int virahanka(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return virahanka(n - 1) + virahanka(n - 2);
+}
+
+int main() {
+    int N;
+    cin >> N;                 // Input
+    cout << virahanka(N);     // Output
+    return 0;
+}
