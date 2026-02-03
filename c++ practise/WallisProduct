@@ -1,0 +1,26 @@
+The Wallis product is a famous formula from the 17th century discovered by mathematician John Wallis. 
+It is one of the earliest infinite product formulas in mathematics and is closely related to the value of pi.
+You need to write a program in simplecpp to compute an approximation of pi using the Wallis product for a fixed number of terms. 
+You need to take an integer N as input and you need to calculate the Wallis Product up to N terms. 
+Then you need to print the approximation of the value of Pi. Each multiplication in the given formula is counted as 1 term. 
+Note: N is even.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    double product = 1.0;
+
+    for (int k = 1; k <= N / 2; k++) {
+        product *= (2.0 * k) / (2.0 * k - 1);
+        product *= (2.0 * k) / (2.0 * k + 1);
+    }
+
+    double pi = 2 * product;
+    cout << pi;
+
+    return 0;
+}
